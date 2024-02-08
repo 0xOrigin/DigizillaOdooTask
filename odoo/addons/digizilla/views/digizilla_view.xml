@@ -68,6 +68,7 @@
                     <field name="message_follower_ids" />
                     <field name="message_ids" />
                 </div>
+                <script type="text/javascript" src="/digizilla/static/src/js/hide_create_button.js"></script>
             </form>
         </field>
     </record>
