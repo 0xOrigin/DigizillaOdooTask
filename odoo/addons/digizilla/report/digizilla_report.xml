@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="digizilla_report_user" model="ir.actions.report">
+        <field name="name">Digizilla Report User</field>
+        <field name="model">digizilla.user</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">digizilla.report_user</field>
+        <field name="report_file">digizilla.report_user</field>
+        <field name="binding_model_id" ref="model_digizilla_user"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
