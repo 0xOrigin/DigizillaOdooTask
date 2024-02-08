@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_user">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <h1>Report for Digizilla User: <t t-esc="doc.name"/></h1>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <b>Name:</b> <t t-esc="doc.name"/>
+                        </div>
+                        <div class="col-4">
+                            <b>Gender:</b> <t t-esc="doc.gender"/>
+                        </div>
+                        <div class="col-4">
+                            <b>Country:</b> <t t-esc="doc.country.name"/>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b>Joining Date:</b> <t t-esc="doc.joining_date"/>
+                        </div>
+                        <div class="col-6">
+                            <b>Tags:</b> <t t-esc="doc.tags"/>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b>Company:</b> <t t-esc="doc.company.name"/> - <t t-esc="doc.company.email"/>
+                        </div>
+                        <div class="col-6">
+                            <b>Customers:</b>
+                            <ul>
+                                <t t-foreach="doc.customers" t-as="customer">
+                                    <li><t t-esc="customer.name"/> - <t t-esc="customer.email"/></li>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b>Notes:</b> <t t-esc="doc.notes"/>
+                        </div>
+                        <div class="col-6">
+                            <b>Comments:</b> <t t-esc="doc.comments"/>
+                        </div>
+                    </div>
+                    <br/>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
