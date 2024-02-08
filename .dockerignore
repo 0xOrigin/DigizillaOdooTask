@@ -1,0 +1,17 @@
+# Building dependencies
+dist.do
+
+# Cache
+__pycache__
+
+# Versioning and metadata
+.git
+.gitignore
+.dockerignore
+
+# Environment variables
+*.env
+.env.temp
+
+# Misc
+README.md
