@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  odoo:
+    build:
+      context: ./odoo
+      dockerfile: Dockerfile
+      target: development
+    restart: always
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./odoo/config:/etc/odoo/
+      - ./odoo/addons:/mnt/extra-addons:rw
+    ports:
+      - 80:8069
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres_db
+    networks:
+      - projectnetwork
+  postgres_db:
+    image: postgres:16.1-alpine
+    restart: always
+    user: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgresql/:/docker-entrypoint-initdb.d/
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - projectnetwork
+
+networks:
+  projectnetwork:
+      driver: bridge
+
+volumes:
+  odoo-web-data:
+  postgres_data:
