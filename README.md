@@ -1,4 +1,5 @@
 # DigizillaOdooTask
+An Assessment task for Python developer role at Digizilla Company.
 
 ## Getting Started
 
