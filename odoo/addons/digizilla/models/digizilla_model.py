@@ -11,7 +11,7 @@ class DigizillaUser(models.Model):
 
     name = fields.Char(string='Name', required=True, tracking=True)
     gender = fields.Selection(gender_selection, string='Gender', tracking=True)
-    country = fields.Char(string='Country', tracking=True)
+    country = fields.Many2one('res.country', string='Country', tracking=True)
     joining_date = fields.Date(string='Joining date', tracking=True)
     tags = fields.Char(string='Tags', tracking=True)
     customers = fields.Many2many('res.partner', string='Customers', tracking=True)
