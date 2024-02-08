@@ -2,6 +2,7 @@
     'name':'Digizilla',
     'version': '1.0.0',
     'author': '0xOrigin',
+    'license': 'Other proprietary',
     'summary': 'Assessment task for Python developer role.',
     'sequence': 1,
     'description':'This is an Assessment task for Python developer role at Digizilla Company.',
