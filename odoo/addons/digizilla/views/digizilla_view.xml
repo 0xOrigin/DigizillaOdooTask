@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Kanban View -->
+    <record id="view_digizilla_kanban" model="ir.ui.view">
+        <field name="name">Digizilla Kanban View</field>
+        <field name="model">digizilla.user</field>
+        <field name="arch" type="xml">
+            <kanban class="o_digizilla_kanban">
+                <field name="name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name" />
+                                </strong>
+                                <p>
+                                    <field name="country" />
+                                </p>
+                                <p>
+                                    <field name="gender" />
+                                </p>
+                                <p>
+                                    <field name="company" />
+                                </p>
+                                <p class="d-flex justify-content-end">
+                                    <field name="joining_date" />
+                                </p>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_digizilla_form" model="ir.ui.view">
+        <field name="name">Digizilla Form View</field>
+        <field name="model">digizilla.user</field>
+        <field name="arch" type="xml">
+            <form string="Digizilla User">
+                <sheet>
+                    <group string="Basic Info">
+                        <field name="name" />
+                        <field name="gender" />
+                        <field name="country" />
+                        <field name="joining_date" />
+                    </group>
+                    <group string="Meta Info">
+                        <field name="company" />
+                        <field name="tags" />
+                    </group>
+                    <notebook>
+                        <page string="Customers">
+                            <field name="customers" />
+                        </page>
+                        <page string="Notes">
+                            <field name="notes" widget="text" />
+                        </page>
+                        <page string="Comments">
+                            <field name="comments" widget="text" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_digizilla_list" model="ir.ui.view">
+        <field name="name">Digizilla List View</field>
+        <field name="model">digizilla.user</field>
+        <field name="arch" type="xml">
+            <tree string="Digizilla">
+                <field name="name" />
+                <field name="gender" />
+                <field name="country" />
+                <field name="joining_date" />
+                <field name="tags" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Actions -->
+
+    <!-- All Views -->
+    <record id="action_digizilla_all_views" model="ir.actions.act_window">
+        <field name="name">Digizilla All Views</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">digizilla.user</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="action_digizilla_kanban_view" model="ir.actions.act_window">
+        <field name="name">Digizilla Kanban</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">digizilla.user</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+    <!-- List View -->
+    <record id="action_digizilla_list_view" model="ir.actions.act_window">
+        <field name="name">Digizilla List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">digizilla.user</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Form View -->
+    <record id="action_digizilla_form_view" model="ir.actions.act_window">
+        <field name="name">Digizilla Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">digizilla.user</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="digizilla_root_menu" name="Digizilla" />
+    <menuitem id="digizilla_sub_menu" parent="digizilla_root_menu" name="Digizilla Views" />
+    <menuitem id="digizilla_all_views_menu" parent="digizilla_sub_menu"
+        action="action_digizilla_all_views" />
+    <menuitem id="digizilla_kanban_menu" parent="digizilla_sub_menu"
+        action="action_digizilla_kanban_view" />
+    <menuitem id="digizilla_list_menu" parent="digizilla_sub_menu"
+        action="action_digizilla_list_view" />
+    <menuitem id="digizilla_form_menu" parent="digizilla_sub_menu"
+        action="action_digizilla_form_view" />
+
+</odoo>
